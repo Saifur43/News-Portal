@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "875046107389",
+    "firebase_url": "https://wordfrequency-bbfc1.firebaseio.com",
+    "project_id": "wordfrequency-bbfc1",
+    "storage_bucket": "wordfrequency-bbfc1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875046107389:android:63e0c6dbf83be42a",
+        "android_client_info": {
+          "package_name": "com.saifur43.wordfrequency"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "875046107389-rhgri5d5332rvunsroa3ee9fghe5216e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.saifur43.wordfrequency",
+            "certificate_hash": "fcdadd14fa444732f912edd0b0f1e900a3e8c77f"
+          }
+        },
+        {
+          "client_id": "875046107389-lirtje07t8lsrrkpu02hdet8dossjoie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfgMyRJlryEg2irqCFwqo-ismDoAv6Nq4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "875046107389-lirtje07t8lsrrkpu02hdet8dossjoie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
