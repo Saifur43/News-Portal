@@ -1,5 +1,6 @@
 package com.saifur43.wordfrequency;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,8 +19,12 @@ import android.widget.Button;
 public class News extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public ProgressDialog pr;
+
+
     Button button;
     Button search;
+    Button cou;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +36,13 @@ public class News extends AppCompatActivity
 
         button = (Button) findViewById(R.id.button2);
         search = (Button) findViewById(R.id.searchB);
+        cou = (Button) findViewById(R.id.cou);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showProgressDialog();
+
 
                 Intent intent = new Intent(News.this,TopNews.class);
                 startActivity(intent);
@@ -51,6 +59,18 @@ public class News extends AppCompatActivity
 
             }
         });
+
+        cou.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showProgressDialog();
+
+                Intent intent = new Intent(News.this,counews.class);
+                startActivity(intent);
+
+            }
+        });
+
 
 
 
@@ -101,6 +121,8 @@ public class News extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(News.this,About.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -115,5 +137,27 @@ public class News extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void showProgressDialog(){
+        if(pr == null){
+            pr = new ProgressDialog(this);
+            pr.setMessage("Loading..");
+            pr.setIndeterminate(true);
+        }
+
+        pr.show();
+    }
+
+    public void hideProgressDialog(){
+        if(pr != null && pr.isShowing()){
+            pr.dismiss();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        hideProgressDialog();
     }
 }

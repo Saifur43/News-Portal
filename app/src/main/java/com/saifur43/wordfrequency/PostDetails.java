@@ -19,6 +19,7 @@ public class PostDetails extends AppCompatActivity {
     TextView detailText;
     ImageView img;
     String link;
+    String tit;
 
     String tt;
     String bdy;
@@ -32,6 +33,8 @@ public class PostDetails extends AppCompatActivity {
         Intent intent = getIntent();
 
         link = intent.getStringExtra(TopNews.LNK);
+        tit = intent.getStringExtra(TopNews.TT);
+
 
         getData();
 
@@ -43,19 +46,33 @@ public class PostDetails extends AppCompatActivity {
         titleText.setText(tt);
         detailText.setText(bdy);
 
-        Picasso.get().load(url).into(img);
+        try{
+            Picasso.get().load(url).into(img);
+        }
+       catch (Exception e){
+
+       }
 
 
     }
 
     public void getData(){
-
-        String[] linkss = link.split("\\.");
-
         String baseurl;
-        baseurl = linkss[1];
 
-        System.out.println("safasdf..."+ baseurl);
+        try{
+
+            String[] linkss = link.split("\\.");
+
+            baseurl = linkss[1];
+
+            System.out.println("safasdf..."+ baseurl);
+
+        }
+        catch (RuntimeException e){
+            baseurl = "bdnews24";
+
+        }
+
 
 
 
@@ -110,14 +127,11 @@ public class PostDetails extends AppCompatActivity {
 
             try{
                 Document doc = Jsoup.connect(link).get();
-                Elements newsHeadlines = doc.select(".print-only");
                 Elements body = doc.select(".wrappingContent p");
                 Elements imga = doc.select(".media img");
 
-                String t = newsHeadlines.text();
-                String[] ts = t.split(",");
 
-                tt = ts[0];
+                tt = tit;
                 bdy = body.text();
 
                 System.out.println(tt);

@@ -8,15 +8,19 @@
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="About" />
+            android:title="পরিচিতি" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Help" />
+            android:title="সাহায্য" />
+
+
+
+
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="অন্যান্য" />
     </group>
 
     <item android:title="Communicate">
@@ -24,11 +28,11 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="শেয়ার" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="পাঠাও" />
         </menu>
     </item>
 

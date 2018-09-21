@@ -55,14 +55,19 @@ public class SearchNews extends AppCompatActivity {
 
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Posts");
+        myRef = database.getReference("Search");
+
 
         sb.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
+                error.setVisibility(View.INVISIBLE);
+
                 myRef.addValueEventListener(new ValueEventListener() {
+
+
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 

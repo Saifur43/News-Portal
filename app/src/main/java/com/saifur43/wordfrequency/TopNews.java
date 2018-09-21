@@ -1,6 +1,7 @@
 package com.saifur43.wordfrequency;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -25,15 +26,20 @@ import java.util.List;
 
 
 public class TopNews extends AppCompatActivity {
+    public ProgressDialog pr;
 
     ListView view ;
 
     DatabaseReference myRef;
     FirebaseDatabase database;
 
+    DatabaseReference myRef2;
+    FirebaseDatabase database2;
+
     List<Posts> postsList;
 
     public static final String LNK = "links";
+    public static final String TT = "p_name";
 
 
     @Override
@@ -52,6 +58,9 @@ public class TopNews extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Posts");
 
+        database2 = FirebaseDatabase.getInstance();
+        myRef2 = database.getReference("Search");
+
         crawler();
 
         view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -62,6 +71,7 @@ public class TopNews extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(),PostDetails.class);
                 intent.putExtra(LNK,posts.getLinks());
+                intent.putExtra(TT,posts.getP_name());
 
                 startActivity(intent);
             }
@@ -96,6 +106,7 @@ public class TopNews extends AppCompatActivity {
 
                     try{
                         myRef.child(title).setValue(post);
+                        myRef2.child(title).setValue(post);
                     }
                     catch (Exception r){
 
@@ -128,6 +139,7 @@ public class TopNews extends AppCompatActivity {
 
                     try{
                         myRef.child(title).setValue(post);
+                        myRef2.child(title).setValue(post);
                     }
                     catch (Exception r){
 
@@ -161,6 +173,9 @@ public class TopNews extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        News s = new News();
+        s.hideProgressDialog();
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -187,5 +202,8 @@ public class TopNews extends AppCompatActivity {
 
             }
         });
+        s.hideProgressDialog();
     }
+
+
 }

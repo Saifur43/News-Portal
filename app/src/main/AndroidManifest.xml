@@ -12,13 +12,14 @@
         android:roundIcon="@drawable/news"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".News"
+        <activity
+            android:name=".News"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".TopNews"
@@ -31,9 +32,13 @@
             android:label="বিস্তারিত সংবাদ" />
         <activity
             android:name=".SearchNews"
-            android:label="সংবাদ খোজ"></activity>
-
-
-</application>
+            android:label="সংবাদ খোজ" />
+        <activity android:name=".counews"
+            android:label="কুবি সংবাদ"/>
+        <activity android:name=".CouNewsDetails"
+            android:label="বিস্তারিত সংবাদ"/>
+        <activity android:name=".About"
+            android:label="পরিচিতি"></activity>
+    </application>
 
 </manifest>
