@@ -1,6 +1,6 @@
 # News Portal
 
-News Portal is a tool for reading latest bangla news.
+News Portal is an app for reading latest bangla news.
 
   
 ![41290338_959580787583585_1691511756439945216_n](https://user-images.githubusercontent.com/16235332/45256971-0db72800-b3c0-11e8-8922-d69c1459c12c.png))
